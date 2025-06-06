@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="/home" class="text-gray-800 text-lg font-bold">Spring Security Demo</a>
+                    <span class="text-gray-400">|</span>
+                    <span class="text-blue-600 font-semibold">Área Administrativa</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-gray-600 mr-4">
+                        Admin: <span sec:authentication="name" class="font-semibold"></span>
+                    </span>
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" 
+                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                            Sair
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto mt-8 px-4">
+        <div class="bg-white shadow rounded-lg p-6">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6">Painel Administrativo</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h2 class="text-lg font-semibold text-blue-800 mb-4">Gerenciamento de Usuários</h2>
+                    <p class="text-gray-600 mb-4">Gerencie os usuários do sistema, suas permissões e status.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Gerenciar Usuários
+                    </button>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h2 class="text-lg font-semibold text-green-800 mb-4">Relatórios</h2>
+                    <p class="text-gray-600 mb-4">Acesse relatórios e estatísticas do sistema.</p>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                        Ver Relatórios
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Logs do Sistema</h2>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-600">Área reservada para exibição de logs e eventos do sistema.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 
